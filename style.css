@@ -82,6 +82,13 @@ menu {
   justify-content:space-around;
 }
 
+menu {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  justify-content:space-around;
+}
+
 menu li{
   height: 100%;
   width: 100%;
