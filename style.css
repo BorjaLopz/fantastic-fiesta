@@ -8,9 +8,8 @@ h1 {
   box-sizing: border-box;
 }
 
-html {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+html{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -74,6 +73,7 @@ menu a {
 
 li > a {
   text-decoration: none;
+
 }
 
 li {
