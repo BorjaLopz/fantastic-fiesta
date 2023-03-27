@@ -2,17 +2,16 @@ h1 {
   color: aqua;
 }
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-
 
 body {
   display: grid;
@@ -75,7 +74,7 @@ menu {
   justify-content:space-around;
 }
 
-menu li{
+menu li {
   height: 100%;
   width: 100%;
   border: 1px solid white;
@@ -89,13 +88,10 @@ menu li{
 
 li > a {
   text-decoration: none;
-
 }
 
 a:visited {
-
-  color:white;
-
+  color: white;
 }
 
 a:hover {
