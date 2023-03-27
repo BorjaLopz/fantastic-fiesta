@@ -8,14 +8,22 @@ h1 {
   box-sizing: border-box;
 }
 
-html{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body {
   display: grid;
   grid-template-rows: 10rem 1fr 2rem;
   min-height: 100vh;
+}
+
+header:not(#darkModeButton) {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 20rem 5rem;
 }
 
 /* header
@@ -59,7 +67,7 @@ menu {
   justify-content:space-around;
 }
 
-menu a {
+menu li {
   height: 100%;
   width: 100%;
   border: 1px solid white;
@@ -76,13 +84,10 @@ li > a {
 
 }
 
-li {
-  flex-grow: 0;
-  width: 2rem;
-}
-
 a:visited {
-  color: white;
+
+  color:white;
+
 }
 
 a:hover {
