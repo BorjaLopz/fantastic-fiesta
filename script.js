@@ -1,3 +1,3 @@
 "use strict";
 
-console.log("Primer log");
+// console.log("Primer log");
