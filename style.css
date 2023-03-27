@@ -1,16 +1,14 @@
 html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: grid;
-    grid-template-rows: 10rem 1fr 2rem;
-    min-height: 100vh;
+  display: grid;
+  grid-template-rows: 10rem 1fr 2rem;
+  min-height: 100vh;
 }
-
-
 
 * {
   margin: 0;
@@ -18,12 +16,10 @@ body {
   box-sizing: border-box;
 }
 
-
-html{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-
-
 
 body {
   display: grid;
@@ -68,23 +64,21 @@ footer {
   background-color: blue;
 }
 
-
 nav {
   display: block;
   height: 100%;
 }
 
-menu a{
+menu a {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   height: 100%;
   width: 100%;
   color: white;
   text-align: center;
 }
-
 
 menu {
   display: flex;
@@ -94,10 +88,10 @@ menu {
 
 li {
   flex-grow: 1;
+}
 
 li > a {
   text-decoration: none;
-
 }
 
 li > a {
