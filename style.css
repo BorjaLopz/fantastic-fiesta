@@ -1,3 +1,82 @@
 h1 {
   color: aqua;
 }
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body
+{
+  display: grid;
+  grid-template-rows: 10rem 1fr 2rem;
+  min-height: 100vh;
+}
+
+/* header
+{
+  background-color: rgb(89, 17, 206);
+  display: flex;
+  flex-direction: column-reverse;
+
+  
+}
+
+header:not(#darkModeButton)
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#darkModeButton
+{
+  align-self: flex-end;
+
+} */
+
+main
+{
+  background-color: aqua;
+}
+
+footer
+{
+  background-color: blue;
+}
+
+menu {
+  display:  flex;
+  list-style: none;
+  height: 100%;
+}
+
+menu li{
+  height: 100%;
+  width: 100%;
+  border: 1px solid;
+  text-decoration: none;
+}
+
+li > a {
+  text-decoration: none;
+
+}
+
+a:visited {
+
+  color:white;
+
+}
+
+a:hover {
+  color: rgb(136, 136, 136);
+}
