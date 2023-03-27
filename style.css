@@ -3,6 +3,7 @@ h1 {
 }
 
 * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,8 +12,12 @@ h1 {
 html {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+body {
 body {
   display: grid;
   grid-template-rows: 10rem 1fr 2rem;
@@ -67,7 +72,14 @@ menu {
   justify-content:space-around;
 }
 
-menu li {
+menu {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  justify-content:space-around;
+}
+
+menu li{
   height: 100%;
   width: 100%;
   border: 1px solid white;
