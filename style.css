@@ -4,16 +4,19 @@ h1 {
 
 
 * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 
 html{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
+body {
 body {
   display: grid;
   grid-template-rows: 10rem 1fr 2rem;
@@ -57,6 +60,7 @@ footer {
   background-color: blue;
 }
 
+
 nav {
   display: block;
   height: 100%;
@@ -66,12 +70,13 @@ menu a{
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
   height: 100%;
   width: 100%;
   color: white;
   text-align: center;
 }
+
 
 menu {
   display: flex;
@@ -81,6 +86,10 @@ menu {
 
 li {
   flex-grow: 1;
+
+li > a {
+  text-decoration: none;
+
 }
 
 li > a {
