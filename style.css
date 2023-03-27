@@ -2,20 +2,18 @@ h1 {
   color: aqua;
 }
 
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-body
-{
+body {
   display: grid;
   grid-template-rows: 10rem 1fr 2rem;
   min-height: 100vh;
@@ -43,38 +41,48 @@ header:not(#darkModeButton)
 
 } */
 
-main
-{
+main {
   background-color: aqua;
 }
 
-footer
-{
+footer {
   background-color: blue;
 }
 
-menu {
-  display:  flex;
-  list-style: none;
-  height: 100%;
+nav {
+  display: block;
 }
 
-menu li{
+menu {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  justify-content:space-around;
+}
+
+menu a {
   height: 100%;
   width: 100%;
-  border: 1px solid;
+  border: 1px solid white;
   text-decoration: none;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 li > a {
   text-decoration: none;
+}
 
+li {
+  flex-grow: 0;
+  width: 2rem;
 }
 
 a:visited {
-
-  color:white;
-
+  color: white;
 }
 
 a:hover {
