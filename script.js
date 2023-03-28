@@ -16,6 +16,9 @@ const html = document.querySelector("html");
 const darkModeButton = document.querySelector("#darkModeButton");
 // console.log(darkModeButton);
 
+const cardsZone = document.querySelector("section ul");
+// console.log(cardsZone);
+
 /* 
     Con licencia gratuita unicamente tenemos acceso a esta api la cual se "actualiza" cada 3 horas, por tanto podremos ver la previsión de 9 horas. Empieza a las 00:00, por lo que la siguiente llamada será a las 03:00. En caso de que hagamos la consulta a las 11:00, aparecerán reflejados los datos desde las 09:00 hasta las 15:00 horas. 
     https://openweathermap.org/forecast5
@@ -71,7 +74,6 @@ function getPermissionOfLocation() {
       //Comprobamos el estado actual, salvo que este en denied haremos la llamada para obtener la ubicación.
       if (result.state !== "denied") {
         statusLocation.textContent = `Localizando ...`;
-
         navigator.geolocation.getCurrentPosition((position) => {
           latitude = position.coords.latitude.toFixed(2); //Obtenemos solamente 2 decimales usando .toFixed(2) -> https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
           longitude = position.coords.longitude.toFixed(2);
@@ -129,25 +131,19 @@ async function getWeatherInformation(list) {
     dataWeatherByDate = {
       fecha: fecha, //Fecha actual. Formato YYYY-MM-DD
       hora: hora, //Hora actual. Formato HH:MM:SS
-      temperatura: temp, //Temperatura actual
-      temperatura_maxima: temp_max, //Temperatura maxima
-      temperatura_minima: temp_min, //Temperatura minima
+      temperatura: Math.round(temp), //Temperatura actual
+      temperatura_maxima: Math.round(temp_max), //Temperatura maxima
+      temperatura_minima: Math.round(temp_min), //Temperatura minima
       weather: list[dt].weather, //Información meteorologica: main-> tipo de clima; description -> información detallada del clima; icon -> información que tendremos que obtener mediante la API
     };
 
     dataWeather.push(dataWeatherByDate);
   }
+  // console.log(dataWeather);
+  generateCards(dataWeather);
 
-  console.log(dataWeather);
-  getIconFromAPI(dataWeather);
 }
 
-async function getIconFromAPI(arr) {
-  for (const it of arr) {
-    let [{ icon }] = it.weather;
-    let url = `https://openweathermap.org/img/wn/${icon}@4x.png`;
-  }
-}
 
 async function getIconFromAPI(arr) {
   for (const it of arr) {
@@ -156,6 +152,27 @@ async function getIconFromAPI(arr) {
 
     console.log(url);
   }
+}
+
+function generateCards(arr)
+{
+  for (const it in arr) {
+    cardsZone.innerHTML += loadInformation(arr[it]);
+  }
+}
+
+function loadInformation(arr)
+{
+  let [{icon}] = arr.weather
+  return `<li>
+            <article>
+              <img src="https://openweathermap.org/img/wn/${icon}@4x.png" alt="">
+              <h2>${arr.hora}</h2>
+              <p>Temperatura<span>${arr.temperatura}</span></p>
+              <p>Temperatura Máxima<span>${arr.temperatura_maxima}</span></p>
+              <p>Temperatura Minima<span>${arr.temperatura_minima}</span></p>
+            </article>
+          </li>`;
 }
 
 //Probamos funcion obtener coordenadas.
