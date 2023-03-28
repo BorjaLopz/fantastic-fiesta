@@ -64,13 +64,13 @@ function getPermissionOfLocation() {
       //Comprobamos el estado actual, salvo que este en denied haremos la llamada para obtener la ubicación.
       if (result.state !== "denied") {
         statusLocation.textContent = `Localizando ...`;
-
-        navigator.geolocation.getCurrentPosition((position) => {
+        
+        navigator.geolocation.getCurrentPosition((position) =>
+        {
           latitude = position.coords.latitude.toFixed(2); //Obtenemos solamente 2 decimales usando .toFixed(2) -> https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
-          longitude = position.coords.longitude.toFixed(2);
-
-          showWeather();
-        });
+            longitude = position.coords.longitude.toFixed(2);
+            showWeather();
+        })
       } else {
         statusLocation.textContent =
           "No se pudo localizar. Activa antes la ubicación de tu dispositivo. ";
@@ -107,14 +107,25 @@ async function showWeather() {
 
   let [{weather}] = await list;
 
-  console.log(weather);
-
-  console.log(city.name);
-  console.log(list);
-
-  console.log(URL);
+  // console.log(city.name);
+  // console.log(list);
+  getWeatherInformation(list);
 
   logCoordinates(city.name);
+}
+
+async function getWeatherInformation(list)
+{
+  console.log("dentro de la funcion");
+  console.log(list);
+  let dataWeater = [];
+
+  for(const dt in list)
+  {
+    // let {main} = list;
+    console.log(list[dt].main);
+    
+  }
 }
 
 //Probamos funcion obtener coordenadas.
