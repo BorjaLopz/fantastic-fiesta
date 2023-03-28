@@ -31,6 +31,13 @@ const darkModeButton = document.querySelector("#darkModeButton");
     IMPORTANTE -> Añadir https:// antes de la llamada ya que sino estaremos preguntando a nuestro servidor local (localhost:3000) y por tanto no conseguiremos la información. 
 */
 
+/*
+  Obtener iconos de la API
+
+  https://openweathermap.org/img/wn/${icon}@4x.png -> Sustituiremos icon con el ID correspondiente. 
+  
+*/
+
 /*  Variables y constantes para usar con la API */
 const APIKey = "2238b138004bfdcffd5a7e524cab218e"; //Licencia de la API que usaremos cuando la llamemos
 const lang = "es"; //Sacaremos los datos en español. Solamente se aplicará en el nombre de la ciudad y la descripción.
@@ -105,10 +112,6 @@ async function showWeather() {
 
   let { city, list } = await informacionBruto;
 
-  let [{weather}] = await list;
-
-  // console.log(city.name);
-  // console.log(list);
   getWeatherInformation(list);
 
   logCoordinates(city.name);
@@ -116,18 +119,40 @@ async function showWeather() {
 
 async function getWeatherInformation(list)
 {
-  console.log("dentro de la funcion");
-  console.log(list);
-  let dataWeater = [];
+  let dataWeatherByDate = {};
+  let dataWeather = [];
 
   for(const dt in list)
   {
     let {temp, temp_max, temp_min} = list[dt].main; //Hacemos destructuring y conseguimos temperatura [temp], temperatura maxima[temp_max], temperatura minima[temp_min]
-    
-    
-    console.log(temp, temp_max, temp_min);
-    console.log(list[dt].weather);
-    
+
+    let [fecha, hora] = list[dt].dt_txt.split(" ");   //Obtenemos la fecha y la hora 
+
+    //Generamos un objeto con la informacion que necesitamos
+    dataWeatherByDate = {
+      fecha: fecha,                     //Fecha actual. Formato YYYY-MM-DD
+      hora: hora,                       //Hora actual. Formato HH:MM:SS
+      temperatura: temp,                //Temperatura actual
+      temperatura_maxima: temp_max,     //Temperatura maxima
+      temperatura_minima: temp_min,     //Temperatura minima
+      weather: list[dt].weather,        //Información meteorologica: main-> tipo de clima; description -> información detallada del clima; icon -> información que tendremos que obtener mediante la API
+    };
+
+    dataWeather.push(dataWeatherByDate);
+
+  }
+
+  console.log(dataWeather);
+  getIconFromAPI(dataWeather)
+}
+
+async function getIconFromAPI(arr)
+{
+  for(const it of arr)
+  {
+    let [{icon}] = it.weather;
+    let url = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+    console.log(url);
   }
 }
 
