@@ -71,13 +71,12 @@ function getPermissionOfLocation() {
       //Comprobamos el estado actual, salvo que este en denied haremos la llamada para obtener la ubicación.
       if (result.state !== "denied") {
         statusLocation.textContent = `Localizando ...`;
-        
-        navigator.geolocation.getCurrentPosition((position) =>
-        {
+
+        navigator.geolocation.getCurrentPosition((position) => {
           latitude = position.coords.latitude.toFixed(2); //Obtenemos solamente 2 decimales usando .toFixed(2) -> https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
-            longitude = position.coords.longitude.toFixed(2);
-            showWeather();
-        })
+          longitude = position.coords.longitude.toFixed(2);
+          showWeather();
+        });
       } else {
         statusLocation.textContent =
           "No se pudo localizar. Activa antes la ubicación de tu dispositivo. ";
@@ -117,40 +116,35 @@ async function showWeather() {
   logCoordinates(city.name);
 }
 
-async function getWeatherInformation(list)
-{
+async function getWeatherInformation(list) {
   let dataWeatherByDate = {};
   let dataWeather = [];
 
-  for(const dt in list)
-  {
-    let {temp, temp_max, temp_min} = list[dt].main; //Hacemos destructuring y conseguimos temperatura [temp], temperatura maxima[temp_max], temperatura minima[temp_min]
+  for (const dt in list) {
+    let { temp, temp_max, temp_min } = list[dt].main; //Hacemos destructuring y conseguimos temperatura [temp], temperatura maxima[temp_max], temperatura minima[temp_min]
 
-    let [fecha, hora] = list[dt].dt_txt.split(" ");   //Obtenemos la fecha y la hora 
+    let [fecha, hora] = list[dt].dt_txt.split(" "); //Obtenemos la fecha y la hora
 
     //Generamos un objeto con la informacion que necesitamos
     dataWeatherByDate = {
-      fecha: fecha,                     //Fecha actual. Formato YYYY-MM-DD
-      hora: hora,                       //Hora actual. Formato HH:MM:SS
-      temperatura: temp,                //Temperatura actual
-      temperatura_maxima: temp_max,     //Temperatura maxima
-      temperatura_minima: temp_min,     //Temperatura minima
-      weather: list[dt].weather,        //Información meteorologica: main-> tipo de clima; description -> información detallada del clima; icon -> información que tendremos que obtener mediante la API
+      fecha: fecha, //Fecha actual. Formato YYYY-MM-DD
+      hora: hora, //Hora actual. Formato HH:MM:SS
+      temperatura: temp, //Temperatura actual
+      temperatura_maxima: temp_max, //Temperatura maxima
+      temperatura_minima: temp_min, //Temperatura minima
+      weather: list[dt].weather, //Información meteorologica: main-> tipo de clima; description -> información detallada del clima; icon -> información que tendremos que obtener mediante la API
     };
 
     dataWeather.push(dataWeatherByDate);
-
   }
 
   console.log(dataWeather);
-  getIconFromAPI(dataWeather)
+  getIconFromAPI(dataWeather);
 }
 
-async function getIconFromAPI(arr)
-{
-  for(const it of arr)
-  {
-    let [{icon}] = it.weather;
+async function getIconFromAPI(arr) {
+  for (const it of arr) {
+    let [{ icon }] = it.weather;
     let url = `https://openweathermap.org/img/wn/${icon}@4x.png`;
     console.log(url);
   }
