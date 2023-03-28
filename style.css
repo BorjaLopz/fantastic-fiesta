@@ -96,7 +96,6 @@ menu {
 li {
   flex-grow: 1;
 }
-
 li > a {
   text-decoration: none;
 }
