@@ -84,7 +84,8 @@ main article {
   height: 320px;
   border-radius: 10px;
   text-align: center;
-  background-color: floralwhite;
+  background-color: whitesmoke;
+  opacity: 0.5;
 }
 article {
   display: flex;

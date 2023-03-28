@@ -142,10 +142,26 @@ async function getWeatherInformation(list) {
   getIconFromAPI(dataWeather);
 }
 
+
+
+
+
+
 async function getIconFromAPI(arr) {
   for (const it of arr) {
     let [{ icon }] = it.weather;
     let url = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+
+
+
+async function getIconFromAPI(arr)
+{
+  for(const it of arr)
+  {
+    let [{icon}] = it.weather;
+    let url = `https://openweathermap.org/img/wn/${icon}@4x.png`; //Esto lo tendremos que meter en la etiqueta img dentro del src
+
+
     console.log(url);
   }
 }
