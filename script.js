@@ -26,7 +26,7 @@ const darkModeButton = document.querySelector("#darkModeButton");
 /* 
     Llamada a la API
 
-    api.openweathermap.org/data/2.5/forecast?lat={latitud}&lon={longitud}&units=${units}&cnt${numberOfTimestamps}&lang${language}&appid={API key} 
+    api.openweathermap.org/data/2.5/forecast?lat={latitud}&lon={longitud}&units=${units}&cnt=${numberOfTimestamps}&lang=${language}&appid={API key} 
 
     IMPORTANTE -> Añadir https:// antes de la llamada ya que sino estaremos preguntando a nuestro servidor local (localhost:3000) y por tanto no conseguiremos la información. 
 */
@@ -35,6 +35,7 @@ const darkModeButton = document.querySelector("#darkModeButton");
 const APIKey = "2238b138004bfdcffd5a7e524cab218e"; //Licencia de la API que usaremos cuando la llamemos
 const lang = "es"; //Sacaremos los datos en español. Solamente se aplicará en el nombre de la ciudad y la descripción.
 const units = "metric"; //Usaremos los datos en sistema métrico.
+const numberOfTimestamps = 3;
 
 /* Declaramos variables globales para poder usar donde queramos latitud y longitud. */
 let latitude;
@@ -50,6 +51,8 @@ function handleDarkModeButton() {
 //Event listener onClick del boton darkMode
 darkModeButton.addEventListener("click", handleDarkModeButton);
 
+/* Conseguir coordenadas y llamada a la API */
+
 //Obtenemos coordinadas (latitud y longitud)
 function getPermissionOfLocation() {
   if ("geolocation" in navigator) {
@@ -57,34 +60,61 @@ function getPermissionOfLocation() {
 
     //Permisos de ubicacion, asi podremos ver el state en el que se encuentra actualmente
     // navigator.permissions.query({ name: "geolocation" }).then(console.log);
-    navigator.permissions.query({ name: "geolocation" }).then((result) =>
-    {
-      //Comprobamos el estado actual, salvo que este en denied haremos la llamada para obtener la ubicación. 
-      if(result.state !== "denied")
-      {
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      //Comprobamos el estado actual, salvo que este en denied haremos la llamada para obtener la ubicación.
+      if (result.state !== "denied") {
         statusLocation.textContent = `Localizando ...`;
+
         navigator.geolocation.getCurrentPosition((position) => {
           latitude = position.coords.latitude.toFixed(2); //Obtenemos solamente 2 decimales usando .toFixed(2) -> https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
           longitude = position.coords.longitude.toFixed(2);
 
-          logCoordinates();
+          showWeather();
         });
-      }
-      else
-      {
-        statusLocation.textContent = "No se pudo localizar. Activa antes la ubicación de tu dispositivo. ";
+      } else {
+        statusLocation.textContent =
+          "No se pudo localizar. Activa antes la ubicación de tu dispositivo. ";
       }
     });
-    
-
   } else {
     //No funciona la geolocalización en el navegador
   }
 }
 
 //Mostramos en un parrafo las coordenadas
-function logCoordinates() {
+function logCoordinates(cityName) {
   statusLocation.textContent = `Latitud: ${latitude} Longitud: ${longitude}`;
+  mainTitle.textContent = `¿Lloverá en ${cityName}?`;
+}
+
+//Obtenemos la informacion en JSON de la API. Si no, lanzaremos un error
+async function getDataFromURL(url) {
+  try {
+    let dataFetch = await fetch(url);
+    let dataJSON = await dataFetch.json();
+    return dataJSON;
+  } catch (e) {
+    throw new Error("Hay un error con la URL. ");
+  }
+}
+
+async function showWeather() {
+  const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=${units}&cnt=${numberOfTimestamps}&lang=${lang}&appid=${APIKey}`;
+
+  let informacionBruto = await getDataFromURL(URL);
+
+  let { city, list } = await informacionBruto;
+
+  let [{weather}] = await list;
+
+  console.log(weather);
+
+  console.log(city.name);
+  console.log(list);
+
+  console.log(URL);
+
+  logCoordinates(city.name);
 }
 
 //Probamos funcion obtener coordenadas.
