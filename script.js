@@ -122,8 +122,11 @@ async function getWeatherInformation(list)
 
   for(const dt in list)
   {
-    // let {main} = list;
-    console.log(list[dt].main);
+    let {temp, temp_max, temp_min} = list[dt].main; //Hacemos destructuring y conseguimos temperatura [temp], temperatura maxima[temp_max], temperatura minima[temp_min]
+    
+    
+    console.log(temp, temp_max, temp_min);
+    console.log(list[dt].weather);
     
   }
 }
