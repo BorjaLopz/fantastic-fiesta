@@ -1,15 +1,3 @@
-html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  display: grid;
-  grid-template-rows: 10rem 1fr 2rem;
-  min-height: 100vh;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +15,7 @@ body {
   min-height: 100vh;
 }
 
-header:not(#darkModeButton) {
+header {
   display: grid;
   align-items: center;
   justify-content: center;
@@ -55,13 +43,32 @@ header:not(#darkModeButton)
   align-self: flex-end;
 
 } */
-
+#backgroundAnimation {
+  width: 100%;
+}
+#mainButton {
+  display: inline-block;
+  position: relative;
+}
+#mainButton {
+  position: absolute;
+  font-size: 20px;
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  background-color: beige;
+  border-width: 2px, solid;
+}
 main {
-  background-color: aqua;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
-  background-color: blue;
+  height: 45px;
+  background-color: rgb(35, 150, 232);
 }
 
 nav {
@@ -100,4 +107,7 @@ li > a {
 
 menu a:hover {
   background-color: rgb(34, 115, 196);
+}
+img {
+  height: 45px;
 }
