@@ -141,9 +141,7 @@ async function getWeatherInformation(list) {
   }
   // console.log(dataWeather);
   generateCards(dataWeather);
-
 }
-
 
 async function getIconFromAPI(arr) {
   console.log(arr.weather);
@@ -155,22 +153,22 @@ async function getIconFromAPI(arr) {
   }
 }
 
-function generateCards(arr)
-{
+function generateCards(arr) {
   cardsZone.innerHTML = "";
   for (const it in arr) {
     cardsZone.innerHTML += loadInformation(arr[it]);
   }
 }
 
-function loadInformation(arr)
-{
-  let [{icon, description}] = arr.weather
+function loadInformation(arr) {
+  let [{ icon, description }] = arr.weather;
   return `<li>
             <article>
               <section>
                 <img src="https://openweathermap.org/img/wn/${icon}@4x.png" alt="">
-                <p>${description.charAt(0).toUpperCase() + description.slice(1)}</p> 
+                <p>${
+                  description.charAt(0).toUpperCase() + description.slice(1)
+                }</p> 
               </section>
               <h2>${arr.hora}</h2>
               <p>Temperatura<span>${arr.temperatura}</span></p>
