@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anybody:ital,wght@0,200;0,300;1,200;1,300&family=Kanit:wght@500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +7,7 @@
 }
 
 html {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: 'Anybody', cursive;
 }
 
 body {
@@ -42,23 +43,6 @@ header {
   background-position: center center;
   background-repeat: no-repeat;
 }
-
-/* header
-{
-  background-color: rgb(89, 17, 206);
-  display: flex;
-  flex-direction: column-reverse;
-
-  
-}
-
-header:not(#darkModeButton)
-{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-*/
 #darkModeButton {
   position: absolute;
   padding: 1rem;
@@ -85,34 +69,6 @@ header:not(#darkModeButton)
   top: 100%;
   left: 44%;
   font-weight: bold;
-}
-/* main article {
-  position: absolute;
-  border: 2px rgb(91, 94, 129) solid;
-  width: 180px;
-  height: 320px;
-  border-radius: 10px;
-  text-align: center;
-  background-color: whitesmoke;
-  opacity: 0.5;
-} */
-article {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: space-between;
-}
-
-#prevision1 {
-  top: 50%;
-  left: 20%;
-}
-#prevision2 {
-  top: 50%;
-}
-#prevision3 {
-  top: 50%;
-  left: 70%;
 }
 
 main {
@@ -151,9 +107,8 @@ menu {
 
 li {
   flex-grow: 1;
-}
-li > a {
-  text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 li > a {
@@ -166,8 +121,6 @@ menu a:hover {
 footer img {
   height: 45px;
 }
-
-/* PRUEBA */
 
 section {
   height: 100%;
@@ -188,7 +141,7 @@ ul {
   justify-content: space-around;
   align-content: space-around;
   list-style: none;
-  gap: 10rem;
+  gap: 2rem;
 }
 
 article{
@@ -196,19 +149,29 @@ article{
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   display: grid;
   background-color: rgb(211, 211, 211);
+  width: 20rem;
+  height: 35rem;
+  justify-self: space-around;
 
   grid-template-columns: 100%;
+  grid-template-rows: 1fr 50% 1fr 1fr 1fr;
   border-radius: 2rem;
+
+  justify-content: space-evenly;
 }
 
 article *:not(img, section) {
-  margin: 0.5rem 1rem;
+  margin: 1.2rem 1rem;
+}
+
+article section:last-child{
+  margin-bottom: 1rem;
 }
 
 /* Ajustamos la hora al centro y le damos un estilo distinto*/
 article h3:nth-of-type(1)
 {
-  margin: 0.5rem 0;
+  margin: 2rem 0 1rem 0.5rem;
   text-align: center;
   font-size: 1.8rem;
   font-style: italic;
@@ -254,41 +217,5 @@ section h2 {
 .informationNumber {
   float:right;
   font-weight: bold;
-}
-
-/* article {
-  border: 1px solid black;
-  overflow: hidden;
-  background-color: rgb(150, 150, 170);
-  height: 25rem;
-  border-radius: 2rem 10px 10px;
-
-  display: flex;
-  justify-content: center;
-}
-
-article *:not(img, section) {
-  margin: 0.5rem 1rem;
-}
-
-article img {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-  /* height: 3rem; */
-  /* width: 10rem;
-  align-self: center; 
-}
-
-article section {
-  width: 100%;
-  height: 50%;
-
-  display: flex;
-  flex-direction: column;
-}
-
-article h2,
-p {
-  text-align: center;
+  font-size: 1.3rem;
 }
