@@ -45,7 +45,7 @@ const cardsZone = document.querySelector("section ul");
 const APIKey = "2238b138004bfdcffd5a7e524cab218e"; //Licencia de la API que usaremos cuando la llamemos
 const lang = "es"; //Sacaremos los datos en español. Solamente se aplicará en el nombre de la ciudad y la descripción.
 const units = "metric"; //Usaremos los datos en sistema métrico.
-const numberOfTimestamps = 2; //Cambiamos a dos para debuggear @TODO cambiar a 3
+const numberOfTimestamps = 3; //Cambiamos a dos para debuggear @TODO cambiar a 3
 
 /* Declaramos variables globales para poder usar donde queramos latitud y longitud. */
 let latitude;
@@ -172,12 +172,23 @@ function loadInformation(arr) {
             <article>
             <h3>${arr.hora}</h3>
               <section>
-                <h2>${description.charAt(0).toUpperCase() + description.slice(1)}</h2> 
+                <h2>${
+                  description.charAt(0).toUpperCase() + description.slice(1)
+                }</h2> 
                 <img src="https://openweathermap.org/img/wn/${icon}@4x.png" alt="">
               </section>
-              <h3>Temperatura<span>${arr.temperatura}ºC</span></h3>
-              <h3>Temperatura Máxima<span>${arr.temperatura_maxima}ºC</span></h3>
-              <h3>Temperatura Minima<span>${arr.temperatura_minima}ºC</span></h3>
+              <section class="sectionSpan">
+                <span class="informationText">Temperatura</span>
+                <span class ="informationNumber">${arr.temperatura}ºC</span>
+              </section>
+              <section class="sectionSpan">
+                <span class="informationText">Temperatura Máxima</span>
+                <span class ="informationNumber">${arr.temperatura_maxima}ºC</span>
+              </section>
+              <section class="sectionSpan">
+                <span class="informationText">Temperatura Minima</span>
+                <span class ="informationNumber">${arr.temperatura_minima}ºC</span>
+              </section>
             </article>
           </li>`;
 }
