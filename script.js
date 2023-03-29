@@ -187,11 +187,15 @@ function loadInformation(arr) {
               </section>
               <section class="sectionSpan">
                 <span class="informationText">Temperatura Máxima</span>
-                <span class ="informationNumber">${arr.temperatura_maxima}ºC</span>
+                <span class ="informationNumber">${
+                  arr.temperatura_maxima
+                }ºC</span>
               </section>
               <section class="sectionSpan">
                 <span class="informationText">Temperatura Minima</span>
-                <span class ="informationNumber">${arr.temperatura_minima}ºC</span>
+                <span class ="informationNumber">${
+                  arr.temperatura_minima
+                }ºC</span>
               </section>
             </article>
           </li>`;
@@ -204,5 +208,8 @@ locationButton.addEventListener("click", getPermissionOfLocation);
 const button = document.querySelector("#darkModeButton");
 
 button.addEventListener("click", function () {
+  button.textContent = document.body.classList.contains("dark-mode")
+    ? "🌑"
+    : "🌞";
   document.body.classList.toggle("dark-mode");
 });
