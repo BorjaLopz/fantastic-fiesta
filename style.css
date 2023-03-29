@@ -171,6 +171,7 @@ article section:last-child{
 /* Ajustamos la hora al centro y le damos un estilo distinto*/
 article h3:nth-of-type(1)
 {
+  letter-spacing: 3px;
   margin: 2rem 0 1rem 0.5rem;
   text-align: center;
   font-size: 1.8rem;
