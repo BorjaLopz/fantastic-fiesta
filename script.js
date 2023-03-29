@@ -127,10 +127,14 @@ async function getWeatherInformation(list) {
 
     let [fecha, hora] = list[dt].dt_txt.split(" "); //Obtenemos la fecha y la hora
 
+    let separamosHora = hora.split(":");  //Separamos las horas quitando el caracter ":"
+    separamosHora.pop();  //Eliminamos el ultimo elemento del array
+    let horaSinSegundos = separamosHora.join(":");  //Juntamos los elementos del array con " : ".
+
     //Generamos un objeto con la informacion que necesitamos
     dataWeatherByDate = {
       fecha: fecha, //Fecha actual. Formato YYYY-MM-DD
-      hora: hora, //Hora actual. Formato HH:MM:SS
+      hora: horaSinSegundos, //Hora actual. Formato HH:MM:SS
       temperatura: Math.round(temp), //Temperatura actual
       temperatura_maxima: Math.round(temp_max), //Temperatura maxima
       temperatura_minima: Math.round(temp_min), //Temperatura minima
