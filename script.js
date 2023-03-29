@@ -45,7 +45,7 @@ const cardsZone = document.querySelector("section ul");
 const APIKey = "2238b138004bfdcffd5a7e524cab218e"; //Licencia de la API que usaremos cuando la llamemos
 const lang = "es"; //Sacaremos los datos en español. Solamente se aplicará en el nombre de la ciudad y la descripción.
 const units = "metric"; //Usaremos los datos en sistema métrico.
-const numberOfTimestamps = 3; //Cambiamos a dos para debuggear @TODO cambiar a 3
+const numberOfTimestamps = 2; //Cambiamos a dos para debuggear @TODO cambiar a 3
 
 /* Declaramos variables globales para poder usar donde queramos latitud y longitud. */
 let latitude;
@@ -170,16 +170,14 @@ function loadInformation(arr) {
   let [{ icon, description }] = arr.weather;
   return `<li>
             <article>
+            <h3>${arr.hora}</h3>
               <section>
+                <h2>${description.charAt(0).toUpperCase() + description.slice(1)}</h2> 
                 <img src="https://openweathermap.org/img/wn/${icon}@4x.png" alt="">
-                <p>${
-                  description.charAt(0).toUpperCase() + description.slice(1)
-                }</p> 
               </section>
-              <h2>${arr.hora}</h2>
-              <p>Temperatura<span>${arr.temperatura}</span></p>
-              <p>Temperatura Máxima<span>${arr.temperatura_maxima}</span></p>
-              <p>Temperatura Minima<span>${arr.temperatura_minima}</span></p>
+              <h3>Temperatura<span>${arr.temperatura}ºC</span></h3>
+              <h3>Temperatura Máxima<span>${arr.temperatura_maxima}ºC</span></h3>
+              <h3>Temperatura Minima<span>${arr.temperatura_minima}ºC</span></h3>
             </article>
           </li>`;
 }

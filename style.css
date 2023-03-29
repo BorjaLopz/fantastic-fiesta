@@ -171,23 +171,63 @@ ul
 {
   padding: 5rem;
   width: 100%;
-  max-width: 50px;
+  max-width: 1600px;
+  max-height: 800px;
+  
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: none;
   justify-content: space-around;
   align-content: space-around;
   list-style: none;
-  gap: 2rem;
+  gap: 10rem;
 }
 
-article {
+article{
+  border: 1px solid black;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  display: grid;
+  background-color: rgb(211, 211, 211);
+
+  grid-template-columns: 100%;
+}
+
+article *:not(img, section) {
+  margin: 0.5rem 1rem;
+}
+
+article h3:nth-of-type(1)
+{
+  text-align: center;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+article h3:not(h3:nth-of-type(1))
+{
+  text-align: center;
+}
+
+article section {
+  display: flex;
+  flex-direction: column;
+}
+
+section img {
+  height: 80%;
+  object-fit: cover;
+}
+
+section h2 {
+  text-align: center;
+}
+
+
+/* article {
   border: 1px solid black;
   overflow: hidden;
   background-color: rgb(150, 150, 170);
   height: 25rem;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
   border-radius: 2rem 10px 10px;
 
   display: flex;
@@ -205,8 +245,8 @@ article img {
   height: 80%;
   object-fit: cover;
   /* height: 3rem; */
-  width: 10rem;
-  align-self: center;
+  /* width: 10rem;
+  align-self: center; 
 }
 
 article section {
@@ -220,4 +260,4 @@ article section {
 article h2, p
 {
   text-align: center;
-}
+} */
