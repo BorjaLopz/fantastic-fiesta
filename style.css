@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anybody:ital,wght@0,200;0,300;1,200;1,300&family=Kanit:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anybody:ital,wght@0,200;0,300;1,200;1,300&family=Kanit:wght@500&display=swap");
 
 * {
   margin: 0;
@@ -7,7 +7,7 @@
 }
 
 html {
-  font-family: 'Anybody', cursive;
+  font-family: "Anybody", cursive;
 }
 
 body {
@@ -51,7 +51,7 @@ header {
   border: none;
   background-color: transparent;
 }
-#backgroundAnimation {
+#backgroundVideo {
   width: 100%;
 }
 #mainButton {
@@ -134,7 +134,7 @@ ul {
   width: 100%;
   max-width: 1600px;
   max-height: 800px;
-  
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -144,7 +144,7 @@ ul {
   gap: 2rem;
 }
 
-article{
+article {
   border: 1px solid black;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   display: grid;
@@ -164,13 +164,23 @@ article *:not(img, section) {
   margin: 1.2rem 1rem;
 }
 
-article section:last-child{
+article section:last-child {
   margin-bottom: 1rem;
 }
 
+article *:not(img, section) {
+  margin: 0.5rem 1rem;
+}
 /* Ajustamos la hora al centro y le damos un estilo distinto*/
-article h3:nth-of-type(1)
-{
+article h3:nth-of-type(1) {
+  letter-spacing: 3px;
+  margin: 2rem 0 1rem 0.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-style: italic;
+}
+/* Ajustamos la hora al centro y le damos un estilo distinto*/
+article h3:nth-of-type(1) {
   letter-spacing: 3px;
   margin: 2rem 0 1rem 0.5rem;
   text-align: center;
@@ -178,14 +188,13 @@ article h3:nth-of-type(1)
   font-style: italic;
 }
 
-article span:nth-of-type(odd)
-{
-  text-align: left;
-}
-
-article span:nth-of-type(even)
-{
-  text-align: right;
+article img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  /* height: 3rem; */
+  width: 10rem;
+  align-self: center;
 }
 
 /* Description e icono*/
@@ -194,14 +203,8 @@ article section {
   flex-direction: column;
 }
 
-/* Icono de la tarjeta*/
-section img {
-  height: 80%;
-  object-fit: cover;
-}
-
-/* Description*/
-section h2 {
+article h2,
+p {
   text-align: center;
 }
 
@@ -216,7 +219,7 @@ section h2 {
 }
 
 .informationNumber {
-  float:right;
+  float: right;
   font-weight: bold;
   font-size: 1.3rem;
 }
