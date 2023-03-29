@@ -45,7 +45,7 @@ const cardsZone = document.querySelector("section ul");
 const APIKey = "2238b138004bfdcffd5a7e524cab218e"; //Licencia de la API que usaremos cuando la llamemos
 const lang = "es"; //Sacaremos los datos en español. Solamente se aplicará en el nombre de la ciudad y la descripción.
 const units = "metric"; //Usaremos los datos en sistema métrico.
-const numberOfTimestamps = 3;
+const numberOfTimestamps = 3; //Cambiamos a dos para debuggear @TODO cambiar a 3
 
 /* Declaramos variables globales para poder usar donde queramos latitud y longitud. */
 let latitude;
@@ -146,6 +146,7 @@ async function getWeatherInformation(list) {
 
 
 async function getIconFromAPI(arr) {
+  console.log(arr.weather);
   for (const it of arr) {
     let [{ icon }] = it.weather;
     let url = `https://openweathermap.org/img/wn/${icon}@4x.png`; //Esto lo tendremos que meter en la etiqueta img dentro del src
@@ -156,6 +157,7 @@ async function getIconFromAPI(arr) {
 
 function generateCards(arr)
 {
+  cardsZone.innerHTML = "";
   for (const it in arr) {
     cardsZone.innerHTML += loadInformation(arr[it]);
   }
@@ -163,10 +165,13 @@ function generateCards(arr)
 
 function loadInformation(arr)
 {
-  let [{icon}] = arr.weather
+  let [{icon, description}] = arr.weather
   return `<li>
             <article>
-              <img src="https://openweathermap.org/img/wn/${icon}@4x.png" alt="">
+              <section>
+                <img src="https://openweathermap.org/img/wn/${icon}@4x.png" alt="">
+                <p>${description.charAt(0).toUpperCase() + description.slice(1)}</p> 
+              </section>
               <h2>${arr.hora}</h2>
               <p>Temperatura<span>${arr.temperatura}</span></p>
               <p>Temperatura Máxima<span>${arr.temperatura_maxima}</span></p>
