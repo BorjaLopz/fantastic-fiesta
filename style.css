@@ -175,6 +175,7 @@ section {
   display: flex;
   justify-content: space-around;
 }
+
 ul {
   padding: 5rem;
   width: 100%;
@@ -197,38 +198,63 @@ article{
   background-color: rgb(211, 211, 211);
 
   grid-template-columns: 100%;
+  border-radius: 2rem;
 }
 
 article *:not(img, section) {
   margin: 0.5rem 1rem;
 }
 
+/* Ajustamos la hora al centro y le damos un estilo distinto*/
 article h3:nth-of-type(1)
 {
+  margin: 0.5rem 0;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-style: italic;
 }
 
-article h3:not(h3:nth-of-type(1))
+article span:nth-of-type(odd)
 {
-  text-align: center;
+  text-align: left;
 }
 
+article span:nth-of-type(even)
+{
+  text-align: right;
+}
+
+/* Description e icono*/
 article section {
   display: flex;
   flex-direction: column;
 }
 
+/* Icono de la tarjeta*/
 section img {
   height: 80%;
   object-fit: cover;
 }
 
+/* Description*/
 section h2 {
   text-align: center;
 }
 
+.sectionSpan {
+  display: inline-block;
+}
+
+.informationText {
+  float: left;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.informationNumber {
+  float:right;
+  font-weight: bold;
+}
 
 /* article {
   border: 1px solid black;
