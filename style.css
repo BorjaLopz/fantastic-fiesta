@@ -56,7 +56,8 @@ header {
 }
 #mainButton {
   position: absolute;
-  top: 90%;
+  top: 83%;
+  left: 750px;
   font-size: 20px;
   height: 50px;
   width: 400px;
@@ -66,8 +67,8 @@ header {
 }
 #currentStatus {
   position: absolute;
-  top: 100%;
-  left: 44%;
+  top: 92%;
+  left: 850px;
   font-weight: bold;
 }
 
