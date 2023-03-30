@@ -76,12 +76,15 @@ function getPermissionOfLocation() {
     });
   } else {
     //No funciona la geolocalización en el navegador
+    statusLocation.textContent =
+      "No se pudo localizar. Activa antes la ubicación de tu dispositivo. ";
   }
 }
 
 //Mostramos en un parrafo las coordenadas
 function logCoordinates(cityName) {
-  statusLocation.textContent = `Latitud: ${latitude} Longitud: ${longitude}`;
+  // statusLocation.textContent = `Latitud: ${latitude} Longitud: ${longitude}`;
+  statusLocation.textContent = "";
   mainTitle.textContent = `¿Lloverá en ${cityName}?`;
 }
 
