@@ -12,7 +12,7 @@ html {
 
 body {
   display: grid;
-  grid-template-rows: 3rem 1fr auto;
+  grid-template-rows: 3rem 1fr 3rem;
   min-height: 100vh;
 
   /*background-color: white;*/
@@ -44,10 +44,9 @@ header {
 
 header h1 {
   height: 40px;
-  align-self: center;
+  align-self:center;
   justify-self: center;
-  background-color: white;
-  opacity: 0.8;
+  margin-left: 5rem; /* Movemos hacia la izquierda para centrarlo completamente*/
 }
 
 header button {
@@ -75,23 +74,27 @@ header button {
   background-color: beige;
   border-width: 2px, solid;
 }
-#currentStatus {
+/* #currentStatus {
   position: absolute;
   top: 6%;
   left: 44%;
   font-weight: bold;
+} */
+
+#currentStatus {
+  margin-top: 2rem;
+  font-size: 2rem;
 }
 
 main {
   /*background-color: white;*/
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 footer {
-  height: 45px;
   background-color: white;
 }
 
@@ -128,10 +131,11 @@ li > a {
 }
 
 menu a:hover {
-  background-color: rgb(34, 115, 196);
+  background-color: rgb(197, 197, 197);
 }
 footer img {
   height: 100%;
+  border-radius: 50%;
 }
 
 section {
@@ -162,7 +166,7 @@ article {
   display: grid;
   background-color: rgb(211, 211, 211);
   width: 20rem;
-  height: 35rem;
+  height: 32rem;
   justify-self: space-around;
 
   grid-template-columns: 100%;
