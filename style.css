@@ -15,8 +15,12 @@ body {
   grid-template-rows: 3rem 1fr auto;
   min-height: 100vh;
 
-  background-color: white;
-  color: black;
+  /*background-color: white;*/
+  /*color: black;*/
+}
+.dark-mode h1 {
+  background-color: black;
+  color: white;
 }
 
 body.dark-mode {
@@ -39,9 +43,11 @@ header {
 }
 
 header h1 {
+  height: 40px;
   align-self: center;
   justify-self: center;
-  margin-left: 5%;
+  background-color: white;
+  opacity: 0.8;
 }
 
 header button {
@@ -51,8 +57,13 @@ header button {
   background-color: transparent;
   font-size: 2rem;
 }
-#backgroundAnimation {
-  width: 100%;
+#backgroundVideo {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: fixed;
+  z-index: -100;
 }
 #mainButton {
   position: absolute;
@@ -72,7 +83,7 @@ header button {
 }
 
 main {
-  background-color: white;
+  /*background-color: white;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,7 +218,8 @@ section h2 {
   display: inline-block;
 }
 
-.informationText, .informationNumber{
+.informationText,
+.informationNumber {
   font-weight: bold;
   font-size: 1.3rem;
 }
