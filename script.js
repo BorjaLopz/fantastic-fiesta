@@ -46,6 +46,7 @@ const APIKey = "2238b138004bfdcffd5a7e524cab218e"; //Licencia de la API que usar
 const lang = "es"; //Sacaremos los datos en español. Solamente se aplicará en el nombre de la ciudad y la descripción.
 const units = "metric"; //Usaremos los datos en sistema métrico.
 const numberOfTimestamps = 3; //Cambiamos a dos para debuggear @TODO cambiar a 3
+const namesOfRain = ["Drizzle", "Rain", "Thunderstorm"];
 
 /* Declaramos variables globales para poder usar donde queramos latitud y longitud. */
 let latitude;
@@ -84,7 +85,7 @@ function getPermissionOfLocation() {
 //Mostramos en un parrafo las coordenadas
 function logCoordinates(cityName) {
   // statusLocation.textContent = `Latitud: ${latitude} Longitud: ${longitude}`;
-  statusLocation.textContent = "";
+  // statusLocation.textContent = "";
   mainTitle.textContent = `¿Lloverá en ${cityName}?`;
 }
 
@@ -114,7 +115,7 @@ async function showWeather() {
 async function getWeatherInformation(list) {
   let dataWeatherByDate = {};
   let dataWeather = [];
-
+  
   for (const dt in list) {
     let { temp, temp_max, temp_min } = list[dt].main; //Hacemos destructuring y conseguimos temperatura [temp], temperatura maxima[temp_max], temperatura minima[temp_min]
 
@@ -140,22 +141,6 @@ async function getWeatherInformation(list) {
   generateCards(dataWeather);
 }
 
-async function getIconFromAPI(arr) {
-  console.log(arr.weather);
-  for (const it of arr) {
-    let [{ icon }] = it.weather;
-    let url = `https://openweathermap.org/img/wn/${icon}@4x.png`;
-  }
-}
-async function getIconFromAPI(arr) {
-  for (const it of arr) {
-    let [{ icon }] = it.weather;
-    let url = `https://openweathermap.org/img/wn/${icon}@4x.png`; //Esto lo tendremos que meter en la etiqueta img dentro del src
-
-    console.log(url);
-  }
-}
-
 function generateCards(arr) {
   cardsZone.innerHTML = "";
   for (const it in arr) {
@@ -164,7 +149,8 @@ function generateCards(arr) {
 }
 
 function loadInformation(arr) {
-  let [{ icon, description }] = arr.weather;
+  let [{ icon, description, main }] = arr.weather;
+  statusLocation.textContent = checkIfItsGonnaRain(main) === true ? "Va a llover en las próximas horas ☔" : "No va a llover en las próximas horas 😎";
   return `<li>
             <article>
             <h3>${arr.hora}</h3>
@@ -192,6 +178,25 @@ function loadInformation(arr) {
               </section>
             </article>
           </li>`;
+}
+
+function checkIfItsGonnaRain(state, arr = namesOfRain)
+{
+  for(const it in arr)
+  {
+    if(arr[it] === state)
+    {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function showRainInformation()
+{
+  statusLocation.textContent = "Va a llover en las proximas horas";
+  console.log("Va a llover");
 }
 
 //Probamos funcion obtener coordenadas.
