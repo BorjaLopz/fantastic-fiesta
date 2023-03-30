@@ -44,9 +44,12 @@ header {
 
 header h1 {
   height: 40px;
-  align-self:center;
+  align-self: center;
   justify-self: center;
+  background-color: white;
+  opacity: 0.8;
   margin-left: 5rem; /* Movemos hacia la izquierda para centrarlo completamente*/
+
 }
 
 header button {
