@@ -140,7 +140,7 @@ async function getWeatherInformation(list) {
   // console.log(dataWeather);
   generateCards(dataWeather);
 }
-
+ 
 function generateCards(arr) {
   cardsZone.innerHTML = "";
   for (const it in arr) {
