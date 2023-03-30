@@ -51,16 +51,6 @@ const numberOfTimestamps = 3; //Cambiamos a dos para debuggear @TODO cambiar a 3
 let latitude;
 let longitude;
 
-/* Función para conmutar modo oscuro */
-function handleDarkModeButton() {
-  //Nombre de la clase provisional.
-  html.classList.toggle(".darkModeButton");
-  console.log("DarkMode:", html.classList.contains(".darkModeButton"));
-}
-
-//Event listener onClick del boton darkMode
-darkModeButton.addEventListener("click", handleDarkModeButton);
-
 /* Conseguir coordenadas y llamada a la API */
 
 //Obtenemos coordinadas (latitud y longitud)

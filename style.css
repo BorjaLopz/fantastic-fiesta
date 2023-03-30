@@ -24,16 +24,12 @@ body.dark-mode {
   color: white;
 }
 
-.dark-mode article {
+.dark-mode footer, .dark-mode article, .dark-mode body {
   background-color: black;
   color: white;
 }
 
-.dark-mode footer {
-  background-color: black;
-}
-
-header {
+/* header {
   display: grid;
   align-items: center;
   justify-content: center;
@@ -42,15 +38,40 @@ header {
   background-size: auto;
   background-position: center center;
   background-repeat: no-repeat;
+} */
+
+/* Hacemos grid para ajustar el titulo en el centro y el boton a la derecha del todo [5rem]*/
+header {
+  display: grid;
+  grid-template-columns: 1fr 5rem;
+  align-items: center;
+} 
+
+/* Alineamos verticalmente el titulo*/
+header h1 {
+  justify-self: center;
 }
+
+/* Hacemos que el botón ocupe todo el ancho y alto del grid que ocupa */
 #darkModeButton {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  /* border: 1px solid green; */
+  border: none;
+  justify-self: center;
+}
+
+
+/* #darkModeButton {
   position: absolute;
   padding: 1rem;
   top: 10px;
   right: 10px;
-  border: none;
+  border: 1px solid purple;
   background-color: transparent;
-}
+} */
+
 #backgroundVideo {
   width: 100%;
 }
@@ -77,11 +98,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-footer {
-  height: 45px;
-  background-color: white;
 }
 
 nav {
@@ -119,8 +135,10 @@ li > a {
 menu a:hover {
   background-color: rgb(34, 115, 196);
 }
+
+/* Hacemos que las imagenes ocupen el 100% del alto dentro del footer*/
 footer img {
-  height: 45px;
+  height: 100%;
 }
 
 section {
