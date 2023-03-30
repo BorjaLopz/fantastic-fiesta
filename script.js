@@ -117,9 +117,9 @@ async function getWeatherInformation(list) {
 
     let [fecha, hora] = list[dt].dt_txt.split(" "); //Obtenemos la fecha y la hora
 
-    let separamosHora = hora.split(":");  //Separamos las horas quitando el caracter ":"
-    separamosHora.pop();  //Eliminamos el ultimo elemento del array
-    let horaSinSegundos = separamosHora.join(":");  //Juntamos los elementos del array con " : ".
+    let separamosHora = hora.split(":"); //Separamos las horas quitando el caracter ":"
+    separamosHora.pop(); //Eliminamos el ultimo elemento del array
+    let horaSinSegundos = separamosHora.join(":"); //Juntamos los elementos del array con " : ".
 
     //Generamos un objeto con la informacion que necesitamos
     dataWeatherByDate = {
@@ -202,4 +202,10 @@ button.addEventListener("click", function () {
     ? "🌑"
     : "🌞";
   document.body.classList.toggle("dark-mode");
+});
+
+const mainButton = document.querySelector("#mainButton");
+
+mainButton.addEventListener("click", function () {
+  mainButton.style.display = "none";
 });
