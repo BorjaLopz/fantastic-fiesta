@@ -49,6 +49,8 @@ header h1 {
   justify-self: center;
   background-color: transparent;
   /*opacity: 0.8;*/
+  background-color: transparent;
+  /*opacity: 0.8;*/
   margin-left: 5rem; /* Movemos hacia la izquierda para centrarlo completamente*/
 }
 
