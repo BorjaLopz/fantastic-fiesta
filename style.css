@@ -44,8 +44,8 @@ header {
 }
 
 header h1 {
-  height: 40px;
-  align-self: center;
+  padding-top: 0.5rem;
+  align-items: center;
   justify-self: center;
   background-color: transparent;
   /*opacity: 0.8;*/
@@ -131,6 +131,13 @@ li > a {
 
 menu a:hover {
   background-color: rgb(197, 197, 197);
+}
+
+menu a:hover img{
+  animation-name: animationImagesFooter;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 footer img {
@@ -267,5 +274,119 @@ section h2 {
   }
   #backgroundVideo {
     bottom: 0;
+  }
+}
+
+/* Animacion para las imagenes del footer */
+@keyframes animationImagesFooter {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    display: grid;
+    grid-template-rows: 3rem auto 3rem;
+  }
+
+  header, #currentStatus {
+    position: sticky;
+  }
+
+  header 
+  {
+    top: 0;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    justify-items: center;
+  }
+
+  main {
+    display: grid;
+    grid-template-rows: 5rem 1fr;
+    height: 100%;
+  }
+
+  ul {
+    padding: 0;
+    max-height: inherit;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    flex-direction: column;
+  }
+
+  #currentStatus {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    top: 5rem;
+    background-color: beige;
+  }
+
+  article {
+  width: 15rem;
+  height: 20rem;
+  grid-template-rows: 1fr 40% 1fr 1fr 1fr;
+  }
+
+  article *:not(img, section) {
+    margin: 5%;
+  }
+
+    article > section:last-child {
+      margin-bottom: 5%;
+    }
+
+  /* Ajustamos la hora al centro y le damos un estilo distinto*/
+  article h3:nth-of-type(1) {
+    margin: 0;
+    padding: 1rem;
+    letter-spacing: 3px;
+    font-size: 1.4rem;
+  }
+
+
+  /* Icono de la tarjeta*/
+  article > section img {
+    align-self: center;
+    width: 150px;
+    padding-bottom: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  article > section h2 {
+    margin-top: 3rem;
+    font-size: 1.3rem;
+  }
+
+  menu a:hover {
+    background-color: inherit;
+  }
+
+  .informationText,
+  .informationNumber {
+    font-size: 1rem;
+  }
+
+  footer img {
+    height: 3rem;
+  }
+  
+  footer 
+  {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
 }
