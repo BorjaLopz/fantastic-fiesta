@@ -50,7 +50,6 @@ header h1 {
   background-color: white;
   opacity: 0.8;
   margin-left: 5rem; /* Movemos hacia la izquierda para centrarlo completamente*/
-
 }
 
 header button {
@@ -78,7 +77,6 @@ header button {
   background-color: beige;
   border-width: 2px, solid;
 }
-
 
 #currentStatus {
   margin-top: 2rem;
@@ -237,6 +235,40 @@ section h2 {
 .informationNumber {
   float: right;
 }
+@media (max-width: 600px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+    max-height: 2rem;
+    width: 100%;
+  }
+  footer img {
+    max-height: 2rem;
+  }
+  header h1 {
+    background-color: transparent;
+  }
+  #backgroundVideo {
+    bottom: 0;
+  }
+}
+@media (max-width: 1183px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+    max-height: 2rem;
+    width: 100%;
+  }
+  footer img {
+    max-height: 2rem;
+  }
+  header h1 {
+    background-color: transparent;
+  }
+  #backgroundVideo {
+    bottom: 0;
+  }
+}
 
 @keyframes animationImagesFooter {
   0% {
@@ -260,8 +292,7 @@ section h2 {
   }
 }
 
-@media (max-width: 600px)
-{
+@media (max-width: 600px) {
   body {
     display: grid;
     grid-template-rows: 3rem 1fr 3rem;
@@ -284,66 +315,63 @@ section h2 {
     text-align: center;
   }
 
-
   article {
-  border: 2px solid black;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-  display: grid;
-  background-color: rgba(211, 211, 211, 0.2);
-  width: 15rem;
-  height: 20rem;
-  justify-self: space-around;
+    border: 2px solid black;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    display: grid;
+    background-color: rgba(211, 211, 211, 0.2);
+    width: 15rem;
+    height: 20rem;
+    justify-self: space-around;
 
-  grid-template-columns: 100%;
-  grid-template-rows: 1fr 40% 1fr 1fr 1fr;
-  border-radius: 2rem;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 40% 1fr 1fr 1fr;
+    border-radius: 2rem;
 
-  justify-content: space-evenly;
-}
+    justify-content: space-evenly;
+  }
 
-article *:not(img, section) {
-  margin: 5%;
-}
+  article *:not(img, section) {
+    margin: 5%;
+  }
 
-article > section:last-child {
-  margin-bottom: 5%;
-}
+  article > section:last-child {
+    margin-bottom: 5%;
+  }
 
-/* Ajustamos la hora al centro y le damos un estilo distinto*/
-article h3:nth-of-type(1) {
-  margin: 0;
-  padding: 1rem;
-  letter-spacing: 3px;
-  /* margin: 2rem 0 1rem 0.5rem; */
-  text-align: center;
-  font-size: 1.4rem;
-  font-style: italic;
-}
+  /* Ajustamos la hora al centro y le damos un estilo distinto*/
+  article h3:nth-of-type(1) {
+    margin: 0;
+    padding: 1rem;
+    letter-spacing: 3px;
+    /* margin: 2rem 0 1rem 0.5rem; */
+    text-align: center;
+    font-size: 1.4rem;
+    font-style: italic;
+  }
 
+  /* Icono de la tarjeta*/
+  article > section img {
+    height: 100%;
+    object-fit: cover;
+    padding-bottom: 1.6rem;
+    margin-bottom: 2rem;
+  }
 
-/* Icono de la tarjeta*/
-article > section img {
-  height: 100%;
-  object-fit: cover;
-  padding-bottom: 1.6rem;
-  margin-bottom: 2rem;
-}
+  article > section h2 {
+    margin-top: 3rem;
+  }
 
-article > section h2 {
-  margin-top: 3rem;
-}
+  menu a:hover {
+    background-color: inherit;
+  }
 
-menu a:hover {
-  background-color: inherit;
-}
-
-.informationText,
-.informationNumber {
-  font-size: 1rem;
-}
+  .informationText,
+  .informationNumber {
+    font-size: 1rem;
+  }
 
   footer img {
     height: 2rem;
   }
-
 }
