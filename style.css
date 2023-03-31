@@ -28,6 +28,11 @@ body.dark-mode {
   color: white;
 }
 
+.dark-mode #currentStatus {
+  color:white;
+  background-color: black;
+}
+
 .dark-mode article {
   background-color: black;
   color: white;
@@ -284,7 +289,9 @@ section h2 {
 
 
   header h1 {
-    background-color: transparent;
+    background-color: rgb(124, 124, 124);
+    align-self: center;
+    padding: 1.5rem 0.5rem; 
   }
   #backgroundVideo {
     bottom: 0;
@@ -292,6 +299,12 @@ section h2 {
   body {
     display: grid;
     grid-template-rows: 3rem auto 3rem;
+    /* overflow: hidden; */
+  }
+
+  body *:not(main, img)
+  {
+    overflow: hidden;
   }
 
   header, #currentStatus {
@@ -312,6 +325,7 @@ section h2 {
     display: grid;
     grid-template-rows: 5rem 1fr;
     height: 100%;
+    /* overflow: auto; */
   }
 
   ul {
@@ -326,9 +340,10 @@ section h2 {
     margin-top: 1rem;
     font-size: 1.5rem;
     text-align: center;
-    top: 5rem;
-    background-color: beige;
-  }
+    top: 3rem;
+    background-color: rgb(124, 124, 124);
+    padding: 0.5rem;
+    }
 
   article {
   width: 15rem;
