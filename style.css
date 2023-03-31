@@ -59,6 +59,10 @@ header button {
   background-color: transparent;
   font-size: 2rem;
 }
+
+button:hover {
+  filter: brightness(150%);
+}
 #backgroundVideo {
   min-width: 100%;
   min-height: 100%;
