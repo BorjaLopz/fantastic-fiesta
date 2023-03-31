@@ -44,11 +44,11 @@ header {
 }
 
 header h1 {
-  height: 40px;
-  align-self: center;
+  padding-top: 0.5rem;
+  align-items: center;
   justify-self: center;
-  background-color: white;
-  opacity: 0.8;
+  background-color: transparent;
+  /*opacity: 0.8;*/
   margin-left: 5rem; /* Movemos hacia la izquierda para centrarlo completamente*/
 }
 
@@ -135,6 +135,13 @@ li > a {
 
 menu a:hover {
   background-color: rgb(197, 197, 197);
+}
+
+menu a:hover img{
+  animation-name: animationImagesFooter;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 footer img {
@@ -274,32 +281,34 @@ section h2 {
   }
 }
 
+/* Animacion para las imagenes del footer */
 @keyframes animationImagesFooter {
   0% {
-    margin-bottom: 0rem;
-  }
-
-  25% {
-    margin-bottom: 3rem;
+    transform: translateY(0);
   }
 
   50% {
-    margin-bottom: 2rem;
-  }
-
-  75% {
-    margin-bottom: 3rem;
+    transform: translateY(-25px);
   }
 
   100% {
-    margin-bottom: 2rem;
+    transform: translateY(-10px);
   }
 }
 
 @media (max-width: 600px) {
   body {
     display: grid;
-    grid-template-rows: 3rem 1fr 3rem;
+    grid-template-rows: 3rem auto 3rem;
+  }
+
+  header, #currentStatus {
+    position: sticky;
+  }
+
+  header 
+  {
+    top: 0;
   }
 
   h1 {
@@ -313,35 +322,43 @@ section h2 {
     height: 100%;
   }
 
+  ul {
+    padding: 0;
+    max-height: inherit;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    flex-direction: column;
+  }
+
   #currentStatus {
     margin-top: 1rem;
     font-size: 1.5rem;
     text-align: center;
+    top: 5rem;
+    background-color: beige;
   }
 
   article {
-    border: 2px solid black;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    display: grid;
-    background-color: rgba(211, 211, 211, 0.2);
-    width: 15rem;
-    height: 20rem;
-    justify-self: space-around;
-
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 40% 1fr 1fr 1fr;
-    border-radius: 2rem;
-
-    justify-content: space-evenly;
+  width: 15rem;
+  height: 20rem;
+  grid-template-rows: 1fr 40% 1fr 1fr 1fr;
   }
 
   article *:not(img, section) {
     margin: 5%;
   }
 
-  article > section:last-child {
-    margin-bottom: 5%;
-  }
+    article > section:last-child {
+      margin-bottom: 5%;
+    }
+
+  /* Ajustamos la hora al centro y le damos un estilo distinto*/
+  article h3:nth-of-type(1) {
+    margin: 0;
+    padding: 1rem;
+    letter-spacing: 3px;
+    font-size: 1.4rem;
+}
 
   /* Ajustamos la hora al centro y le damos un estilo distinto*/
   article h3:nth-of-type(1) {
@@ -356,14 +373,15 @@ section h2 {
 
   /* Icono de la tarjeta*/
   article > section img {
-    height: 100%;
-    object-fit: cover;
+    align-self: center;
+    width: 150px;
     padding-bottom: 1.6rem;
     margin-bottom: 2rem;
   }
 
   article > section h2 {
     margin-top: 3rem;
+    font-size: 1.3rem;
   }
 
   menu a:hover {
@@ -376,6 +394,14 @@ section h2 {
   }
 
   footer img {
-    height: 2rem;
+    height: 3rem;
   }
+
+  footer 
+  {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
 }
