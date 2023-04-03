@@ -140,7 +140,7 @@ async function getWeatherInformation(list) {
   // console.log(dataWeather);
   generateCards(dataWeather);
 }
- 
+
 function generateCards(arr) {
   cardsZone.innerHTML = "";
   for (const it in arr) {
@@ -150,6 +150,7 @@ function generateCards(arr) {
 
 function loadInformation(arr) {
   let [{ icon, description, main }] = arr.weather;
+  statusLocation.style.backgroundColor = "rgb(124, 124, 124)";
   statusLocation.textContent = checkIfItsGonnaRain(main) === true ? "Va a llover en las próximas horas ☔" : "No va a llover en las próximas horas 😎";
   return `<li>
             <article>
