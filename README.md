@@ -16,6 +16,5 @@ Aplicación web que mostrará si va a llover en las próximas 9 horas o no en tu
 
 
 ## 🛠 Skills
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cursosgis.com%2Fcomo-integramos-los-lenguajes-html-css-y-javascript%2F&psig=AOvVaw1eWWau3yOfQczrmz7oIu9y&ust=1681841579709000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPiouaHCsf4CFQAAAAAdAAAAABAE" alt = "Esto es una prueba"/>
-Javascript, HTML and CSS
+![TOOLS](https://www.nicepng.com/png/detail/142-1423886_html5-css3-js-html-css-javascript.png)
 
