@@ -137,7 +137,7 @@ async function getWeatherInformation(list) {
 
     dataWeather.push(dataWeatherByDate);
   }
-  // console.log(dataWeather);
+  console.log(dataWeather);
   generateCards(dataWeather);
 }
 
@@ -190,7 +190,6 @@ function checkIfItsGonnaRain(state, arr = namesOfRain)
       return true;
     }
   }
-
   return false;
 }
 
@@ -214,7 +213,7 @@ button.addEventListener("click", function () {
 });
 
 const mainButton = document.querySelector("#mainButton");
-
+console.log(mainButton);
 mainButton.addEventListener("click", function () {
   mainButton.style.display = "none";
 });
